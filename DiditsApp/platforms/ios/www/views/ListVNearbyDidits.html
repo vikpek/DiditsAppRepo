@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Didits Within a given Range</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../libs/jquery.mobile-1.3.1/css/jquery.mobile-1.3.1.min.css"/>
+
+    <link rel="stylesheet" href="../css/views/userHomeView.css"/>
+    <link rel="stylesheet" href="../css/views/ListVNearbyDidits.css"/>
+
+    <script src="../libs/jquery-2.0.2/js/jquery-2.0.2.min.js"></script>
+    <script src="../libs/jquery.mobile-1.3.1/js/jquery.mobile-1.3.1.min.js"></script>
+
+    <script type="text/javascript" src="../cordova-2.7.0.js"></script>
+    <script type="text/javascript" src="../plugins/MapKit.js"></script>
+    <script type="text/javascript" src="../plugins/applicationPreferences.js"></script>
+    <script type="text/javascript" src="../plugins/barcodescanner.js"></script>
+
+    <script src="../libs/core/restCore.js"></script>
+    <script src="../libs/core/diditsDB.js"></script>
+    <script src="../libs/core/listGenerator.js"></script>
+    <script src="../libs/core/distanceCalculator.js"></script>
+    <script src="../libs/core/pinGenerator.js"></script>
+    <script src="../libs/core/mapUtility.js"></script>
+</head>
+<body onload="pageLoad()">
+<div data-role="page">
+    <div class="container" data-theme="a" data-role="header">
+        <a class="block" id="back" data-role="button" data-inline="true" data-direction="reverse"
+           data-rel="back" href="#page1" data-icon="arrow-l" data-iconpos="left" class="ui-btn-left">
+            Back
+        </a>
+
+        <div class="block" id="chooser" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                <input id="radiolist" name="" value="vlist" type="radio">
+                <label for="radiolist">
+                    List
+                </label>
+                <input id="radiomap" name="" value="vmap" type="radio">
+                <label for="radiomap">
+                    Map
+                </label>
+            </fieldset>
+        </div>
+        <div class="block" data-role="fieldcontain">
+            <select id="dropdownmenu" name="" data-mini="true">
+                <option value="vmenu">
+                    ...
+                </option>
+            </select>
+        </div>
+    </div>
+
+    <div data-role="content">
+        <ul class="didit-list" data-role="listview" data-inset="true">
+        </ul>
+        <script>
+            document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+
+                navigator.geolocation.getCurrentPosition(onSuccess, onError);
+
+                function onSuccess(position) {
+                    listGenerator.generateDiditListWithRange(100, position.coords.latitude, position.coords.longitude);
+                }
+
+                function onError(error) {
+                    alert(error.message);
+                }
+
+
+                $(":radio").bind("change", function (event) {
+                    if ($(this).val() === "vlist") {
+                        mapKit.hideMap();
+                    }
+                    if ($(this).val() === "vmap") {
+                        mapUtility.displayMapForNearby();
+                    }
+                });
+
+                $("#back").click(function(){
+                    mapKit.hideMap();
+                });
+
+            }
+        </script>
+    </div>
+</div>
+</body>
+</html>

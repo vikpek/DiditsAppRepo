@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>All Didits</title>
+</head>
+<body onload="pageLoad()">
+<div data-role="page">
+    <div data-role="header">
+        <a data-role="button" data-rel="back" href="#page1" data-icon="arrow-l"
+           data-iconpos="left" class="ui-btn-left">
+            Back
+        </a>
+
+        <h1>All Didits</h1>
+    </div>
+    <div data-role="content">
+        <ul class="didit-list" data-role="listview" data-inset="true">
+        </ul>
+        <script>
+            
+            document.addEventListener("deviceready", onDeviceReady, false);
+            
+            function onDeviceReady() {
+                listGenerator.generateDiditListWithLimit(5);
+            }
+        </script>
+    </div>
+</div>
+</body>
+</html>
