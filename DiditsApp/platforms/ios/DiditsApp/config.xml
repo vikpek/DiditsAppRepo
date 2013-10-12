@@ -11,6 +11,9 @@
     <feature name="LocalStorage">
         <param name="ios-package" value="CDVLocalStorage" />
     </feature>
+    <feature name="applicationPreferences">
+        <param name="ios-package" value="applicationPreferences"/>
+    </feature>
     <access origin="http://127.0.0.1*" />
     <preference name="KeyboardDisplayRequiresUserAction" value="true" />
     <preference name="SuppressesIncrementalRendering" value="false" />
@@ -39,9 +42,4 @@
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />
-    <plugins>
-        <plugin name="applicationPreferences" value="applicationPreferences"/>
-        <plugin name="MapKit" value="MapKit"/>
-        <plugin name="org.apache.cordova.barcodeScanner" value="CDVBarcodeScanner"/>
-    </plugins>
 </widget>
