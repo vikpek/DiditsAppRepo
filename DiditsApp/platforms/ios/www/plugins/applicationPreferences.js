@@ -1,29 +1,17 @@
-(function() {
-  
-function applicationPreferences() {}
-
-applicationPreferences.prototype.get = function(key,success,fail) 
-{
-    var args = {};
-    args.key = key;
-    cordova.exec(success,fail,"applicationPreferences","getSetting",[args]);
-};
-
-applicationPreferences.prototype.set = function(key,value,success,fail) 
-{
-    var args = {};
-    args.key = key;
-    args.value = value;
-    cordova.exec(success,fail,"applicationPreferences","setSetting",[args]);
-};
-
-
-if(!window.plugins) {
-    window.plugins = {};
-}
-if ( ! window.plugins.applicationPreferences ) {
-    window.plugins.applicationPreferences = new applicationPreferences();
-}
-
-})();
-
+cordova.define("applicationPreferences", function(require, exports, module) {
+               var exec = require('cordova/exec');
+               
+               var ApplicationPreferences = function() {};
+               
+               
+               ApplicationPreferences.prototype.get = function(key, successFn, errorFn) {
+               exec(successFn, errorFn, 'applicationPreferences', 'getSetting', [key]);
+               }
+               
+               ApplicationPreferences.prototype.set = function(key,value, successFn, errorFn) {
+               exec(successFn, errorFn, 'applicationPreferences', 'setSetting', [key,value]);
+               }
+               
+               var applicationPreferences = new ApplicationPreferences();
+               module.exports = applicationPreferences;
+               });

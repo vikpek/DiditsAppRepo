@@ -18,7 +18,8 @@
         function pageLoad() {
             document.addEventListener("deviceready", function () {
                 var temp = "";
-                window.plugins.applicationPreferences.get('userId', function (result) {
+                cordova.require("applicationPreferences").get('userId', function (result) {
+//                window.plugins.applicationPreferences.get('userId', function (result) {
                             temp = result;
                             window.location= "views/UserHomeView.html";
 
