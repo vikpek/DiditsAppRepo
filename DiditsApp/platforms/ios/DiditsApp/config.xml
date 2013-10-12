@@ -14,6 +14,9 @@
     <feature name="applicationPreferences">
         <param name="ios-package" value="applicationPreferences"/>
     </feature>
+    <feature name="MapKit">
+        <param name="ios-package" value="MapKit"/>
+    </feature>
     <access origin="http://127.0.0.1*" />
     <preference name="KeyboardDisplayRequiresUserAction" value="true" />
     <preference name="SuppressesIncrementalRendering" value="false" />

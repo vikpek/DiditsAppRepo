@@ -53,6 +53,14 @@ var mapUtility = {
 
         });
     },
+    displayMap: function displayMap() {
+    var success = function () {
+            };
+    initMap(function () {
+            mapKit.showMap(success, error);
+            
+            });
+},
     displayMapForNearby: function displayMapForNearby() {
         var success = function () {
             pinGenerator.generatePinsForNearby(function (data) {
