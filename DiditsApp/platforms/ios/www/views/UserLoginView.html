@@ -40,10 +40,11 @@
 
                 $('#submit').on('click', function () {
                     if ($('#username').val().length > 0 && $('#password').val().length > 0) {
-                        window.plugins.applicationPreferences.set('userId', $('#username').val(), function (data) {
+                        cordova.require("applicationPreferences").set('userId', $('#username').val(), function (data) {
+//                        window.plugins.applicationPreferences.set('userId', $('#username').val(), function (data) {
                                     localStorage.username = $('#username').val();
-
-                                    window.plugins.applicationPreferences.set('password', $('#password').val(), function (data) {
+                                    cordova.require("applicationPreferences").set('password', $('#password').val(), function (data) {
+//                                    window.plugins.applicationPreferences.set('password', $('#password').val(), function (data) {
                                                 localStorage.baseCode = window.btoa($('#username').val() + ":" + $('#password').val());
                                                 window.location = "UserHomeView.html";
                                             },
