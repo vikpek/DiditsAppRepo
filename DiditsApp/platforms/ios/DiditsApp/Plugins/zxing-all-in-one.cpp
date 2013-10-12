@@ -11979,4 +11979,3 @@ Point QREdgeDetector::endOfReverseBlackWhiteBlackRun(const BitMatrix& image, Poi
 
 } // namespace qrcode
 } // namespace zxing
-

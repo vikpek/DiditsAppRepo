@@ -39,4 +39,9 @@
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />
+    <plugins>
+        <plugin name="applicationPreferences" value="applicationPreferences"/>
+        <plugin name="MapKit" value="MapKit"/>
+        <plugin name="org.apache.cordova.barcodeScanner" value="CDVBarcodeScanner"/>
+    </plugins>
 </widget>
