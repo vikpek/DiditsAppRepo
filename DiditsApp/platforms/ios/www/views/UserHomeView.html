@@ -26,12 +26,16 @@
 </head>
 <body onload="pageLoad()">
 <div data-role="page">
-    <div data-role="header">
-        <h1>Didits</h1>
-        <a data-role="button" id="settings-button" data-inline="true" href="UserSettings.html" data-icon="gear"
-           data-iconpos="left" class="ui-btn-right">
-            Settings
-        </a>
+    <div class='diits_header'>
+        <div id='didits_header_left'>
+            <pre>left</pre>
+        </div>
+        <div id='didits_header_center'>
+            <pre>center</pre>
+        </div>
+        <div id='didits_header_right'>
+            <pre>right</pre>
+        </div>
     </div>
     <div data-role="content" class='didits-userhomeview'>
         <a href="ListVAllDidits.html" data-role="button" class="didits-btn didits-btn-homeview didits-btn-alldidit"><div class='didits-btn-text'>All Didits</div></a>
@@ -42,19 +46,24 @@
         <a href="ScannerFakeView.html" data-role="button" class="didits-btn didits-btn-dummy"><div class='didits-btn-text'>Fake Scanner</div></a>
     </div>
     <script>
-
+document.addEventListener('deviceready', onDeviceReady, false);
         function pageLoad() {
+            alert(window.device.version);
             document.addEventListener("deviceready", function () {
-
+                
+                if (parseFloat(window.device.version) === 7.0) {
+                                      alert('asd');
+                        document.body.style.marginTop = "20px";
+                }
                 var user = '';
                 var pass = '';
-                window.plugins.applicationPreferences.get('userId', function (result) {
+                cordova.require("applicationPreferences").get('userId', function (result) {
                             user = result;
                         }, function (error) {
                             console.log("Failed to retrieve a setting: " + error);
                         }
                 );
-                window.plugins.applicationPreferences.get('password', function (result) {
+                cordova.require("applicationPreferences").get('password', function (result) {
                             pass = result;
                         }, function (error) {
                             console.log("Failed to retrieve a setting: " + error);
@@ -89,7 +98,7 @@
                 });
 
                 //check scaleUnit
-                window.plugins.applicationPreferences.get('scaleUnit', function (result) { 
+                cordova.require("applicationPreferences").get('scaleUnit', function (result) {
                     }, 
                     function (error) {        
                         window.plugins.applicationPreferences.set('scaleUnit','metric', function (result) {

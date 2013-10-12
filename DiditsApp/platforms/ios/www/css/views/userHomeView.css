@@ -83,3 +83,15 @@
     overflow: visible !important;
 
 }
+
+#didits_header_left{
+    float:left;
+}
+
+
+#didits_header_center{
+
+}
+#didits_header_right{
+    float:right;
+}
