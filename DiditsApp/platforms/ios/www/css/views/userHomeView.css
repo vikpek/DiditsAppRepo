@@ -95,3 +95,10 @@
 #didits_header_right{
     float:right;
 }
+
+.sidebar-arrow-right{
+    position: relative;
+    top:20px;
+  height:20px;
+}
+

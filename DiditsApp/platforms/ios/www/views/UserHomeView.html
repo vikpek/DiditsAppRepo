@@ -29,20 +29,9 @@
     <body onload="pageLoad()">
         <div data-role="page">
             <div class='diits_header'>
-                
-                <div id='didits_header_left'>
-                    <pre>left</pre>
-                </div>
-                <div id='didits_header_center'>
-                    <pre>center</pre>
-                </div>
-                <div id='didits_header_right'>
-                    <pre>right</pre>
-                </div>
-                
-                
+                <a id="remote-content-menu" href="#remote-content-menu"><img src='../img/arrow2black.png' class='sidebar-arrow-right'></a>
             </div>
-            <a id="remote-content-menu" href="#remote-content-menu">Sidebar</a>
+            
             <div data-role="content" class='didits-userhomeview'>
                 <a href="ListVAllDidits.html" data-role="button" class="didits-btn didits-btn-homeview didits-btn-alldidit"><div class='didits-btn-text'>All Didits</div></a>
                 <a href="ListVOwnDidits.html" data-role="button" class="didits-btn didits-btn-dummy"><div class='didits-btn-text'>My Didits</div></a>
@@ -122,7 +111,7 @@
                                               $('#remote-content-menu').sidr({
                                                                              name: 'sidr-remote-content',
                                                                              source: 'Sidebar.html'
-                                                                             });
+                                              });
                                                                              
                                                                              
                 }
