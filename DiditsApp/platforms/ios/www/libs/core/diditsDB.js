@@ -14,7 +14,7 @@ var maxSize = 65535;
 
 function errorHandler(transaction, error) {
     // hack - to filter the pk unique (which are fine) statements
-    if (error.code != 1) {
+    if (error.code != 1 && error.code != 6) {
         console.log('Error: ' + error.message + ' code: ' + error.code);
     }
 }
@@ -52,11 +52,35 @@ var diditsDB = {
         $.each(didits, function (key, val) {
             db.transaction(function (transaction) {
                 transaction.executeSql('INSERT INTO Didit(diditId, payload, own)VALUES(?, ?, ?)', [val.id, JSON.stringify(val), own], nullHandler, errorHandler);
+                console.log('!');
 
             });
         });
     },
-    findAllDiditsWithRange: function findAllDiditsWithLimit(limit, diditCallback) {
+    findAllDidits: function findAllDidits(diditCallback) {
+        initDB();
+        db.transaction(function (transaction) {
+            transaction.executeSql('SELECT * FROM Didit;', [],
+                function (transaction, result) {
+                    if (result !== null && result.rows !== null) {
+                        var diditList = "[";
+                        for (var i = 0; i < result.rows.length; i++) {
+                            var row = result.rows.item(i);
+                            var jsonPayload = JSON.parse(row.payload);
+                            jsonPayload.owned  = row.own;
+                            diditList = diditList + JSON.stringify(jsonPayload);
+                            if (i != result.rows.length - 1) {
+                                diditList = diditList + ',';
+                            }
+                            console.log('.');
+                        }
+                        diditList = diditList + ']';
+                        diditCallback(JSON.parse(diditList));
+                    }
+                }, errorHandler);
+        }, errorHandler, nullHandler);
+    },
+    findAllDiditsWithLimit: function findAllDiditsWithLimit(limit, diditCallback) {
         initDB();
         db.transaction(function (transaction) {
             transaction.executeSql('SELECT * FROM Didit LIMIT ?;', [limit],

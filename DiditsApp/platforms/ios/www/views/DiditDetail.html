@@ -67,7 +67,7 @@
     </div>
     <script>
         $(document).ready(function () {
-            diditsDB.findDiditById(parseInt(localStorage.diditId), function(didit){
+            diditsDB.findDiditById(parseInt(localStorage.diditId), function (didit) {
                 $('#didits-name').text(didit.city);
                 $('#didit-map').attr("src", "http://maps.googleapis.com/maps/api/staticmap?center=" + didit.latitude
                         + "," + didit.longitude + "&zoom=15&size=400x400&sensor=false");

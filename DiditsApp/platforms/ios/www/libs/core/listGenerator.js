@@ -55,7 +55,7 @@ function generateDiditListWithDistance(data_) {
 var listGenerator = {
 
     generateDiditListWithLimit: function generateDiditListWithLimit(limit) {
-        diditsDB.findAllDiditsWithRange(limit, function (data) {
+        diditsDB.findAllDiditsWithLimit(limit, function (data) {
             generateDiditList(data);
         });
     },
@@ -65,7 +65,7 @@ var listGenerator = {
         });
     },
     generateDiditListWithRangeAndLimit: function generateDiditListWithRangeAndLimit(range, limit, currentLat, currentLong) {
-        diditsDB.findAllDiditsWithRange(limit, function (didits) {
+        diditsDB.findAllDiditsWithLimit(limit, function (didits) {
             generateDiditList(distanceCalculator.calculateDistance(range, didits, currentLat, currentLong));
 
         });

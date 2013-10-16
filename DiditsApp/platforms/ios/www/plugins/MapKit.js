@@ -66,7 +66,7 @@
 
     };
 
-    cordovaRef.addConstructor(function () {
+    cordova.addConstructor(function () {
         window.mapKit = new MapKit();
         window.plugins.mapKit = new MapKit();
     });

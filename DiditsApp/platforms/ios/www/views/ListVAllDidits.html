@@ -3,7 +3,7 @@
 <head>
     <title>All Didits</title>
 </head>
-<body onload="pageLoad()">
+<body>
 <div data-role="page">
     <div data-role="header">
         <a data-role="button" data-rel="back" href="#page1" data-icon="arrow-l"
@@ -21,7 +21,7 @@
             document.addEventListener("deviceready", onDeviceReady, false);
             
             function onDeviceReady() {
-                listGenerator.generateDiditListWithLimit(5);
+                listGenerator.generateDiditListWithLimit(300);
             }
         </script>
     </div>
