@@ -18,65 +18,67 @@
  under the License.
  -->
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-        <script src="libs/jquery-2.0.2/js/jquery-2.0.2.min.js"></script>
-        <script src="libs/jquery.mobile-1.3.1/js/jquery.mobile-1.3.1.min.js"></script>
-        <title>Welcome to Didits</title>
-    </head>
-    <body>
-        <div class="didits-login">
-            <h1>Welcome to Didits</h1>
-            <form id="check-user" data-ajax="false">
-                <fieldset>
-                    <div data-role="fieldcontain">
-                        <label for="username">Enter username:</label>
-                        <input type="text" value="" name="username" id="username"/>
-                    </div>
-                    <div data-role="fieldcontain">
-                        <label for="password">Enter password:</label>
-                        <input type="password" value="" name="password" id="password"/>
-                    </div>
-                    <input type="button" name="submit" id="submit" value="Login">
-                </fieldset>
-            </form>
-        </div>
-        <script type="text/javascript" src="phonegap.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
-        <script type="text/javascript">
-            function onDeviceReady() {
-                //yes it finally gets the ready event
-                console.log('ready');
-                localStorage.diditsUrl = "http://didits.org:8080";
-                
-                $('#submit').on('click', function () {
-                                if ($('#username').val().length > 0 && $('#password').val().length > 0) {
-                                cordova.require("applicationPreferences").set('userId', $('#username').val(), function (data) {
-                                                                              //                        window.plugins.applicationPreferences.set('userId', $('#username').val(), function (data) {
-                                                                              localStorage.username = $('#username').val();
-                                                                              cordova.require("applicationPreferences").set('password', $('#password').val(), function (data) {
-                                                                                                                            //                                    window.plugins.applicationPreferences.set('password', $('#password').val(), function (data) {
-                                                                                                                            localStorage.baseCode = window.btoa($('#username').val() + ":" + $('#password').val());
-                                                                                                                            window.location = "UserHomeView.html";
-                                                                                                                            },
-                                                                                                                            function (error) {
-                                                                                                                            console.log("Failed to retrieve a setting: " + error);
-                                                                                                                            }
-                                                                                                                            );
-                                                                              },
-                                                                              function (error) {
-                                                                              console.log("Failed to retrieve a setting: " + error);
-                                                                              }
-                                                                              );
-                                }
-                                });
-                
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <script src="libs/jquery-2.0.2/js/jquery-2.0.2.min.js"></script>
+    <script src="libs/jquery.mobile-1.3.1/js/jquery.mobile-1.3.1.min.js"></script>
+    <title>Welcome to Didits</title>
+</head>
+<body>
+<div class="didits-login">
+    <h1>Welcome to Didits</h1>
+    <form id="check-user" data-ajax="false">
+        <fieldset>
+            <div data-role="fieldcontain">
+                <label for="username">Enter username:</label>
+                <input type="text" value="" name="username" id="username"/>
+            </div>
+            <div data-role="fieldcontain">
+                <label for="password">Enter password:</label>
+                <input type="password" value="" name="password" id="password"/>
+            </div>
+            <!--WHY THE FUCK zeigt es 'value' im UND vorm button an??? -->
+            <input type="button" name="submit" id="submit" value="Login"/>
+            <a href="RegistrationView.html">Register</a>
+
+        </fieldset>
+    </form>
+</div>
+<!--habe cordova statt phonegap eingebunden weil ich sonst fehler von plugins bekomme. ich glaube nur cordova reicht. aber nicht 100% sicher-->
+<script type="text/javascript" src="cordova.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/PhonegapIToast.js"></script>
+<script type="text/javascript">
+    function onDeviceReady() {
+        localStorage.diditsUrl = "http://didits.org:8080";
+        window.plugins.iToast.show('This is a toast notification');
+
+        $('#submit').on('click', function () {
+            if ($('#username').val().length > 0 && $('#password').val().length > 0) {
+                cordova.require("applicationPreferences").set('userId', $('#username').val(), function (data) {
+                            localStorage.username = $('#username').val();
+                            cordova.require("applicationPreferences").set('password', $('#password').val(), function (data) {
+                                        localStorage.baseCode = window.btoa($('#username').val() + ":" + $('#password').val());
+                                        window.location = "UserHomeView.html";
+                                    },
+                                    function (error) {
+                                        console.log("Failed to retrieve a setting: " + error);
+                                    }
+                            );
+                        },
+                        function (error) {
+                            console.log("Failed to retrieve a setting: " + error);
+                        }
+                );
             }
-        
-        document.addEventListener('deviceready', onDeviceReady, false);
-        </script>
-    </body>
+        });
+
+    }
+
+    document.addEventListener('deviceready', onDeviceReady, false);
+</script>
+</body>
 </html>
