@@ -50,11 +50,9 @@
 <!--habe cordova statt phonegap eingebunden weil ich sonst fehler von plugins bekomme. ich glaube nur cordova reicht. aber nicht 100% sicher-->
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
-<script type="text/javascript" src="js/PhonegapIToast.js"></script>
 <script type="text/javascript">
     function onDeviceReady() {
         localStorage.diditsUrl = "http://didits.org:8080";
-        window.plugins.iToast.show('This is a toast notification');
 
         $('#submit').on('click', function () {
             if ($('#username').val().length > 0 && $('#password').val().length > 0) {
@@ -62,17 +60,23 @@
                             localStorage.username = $('#username').val();
                             cordova.require("applicationPreferences").set('password', $('#password').val(), function (data) {
                                         localStorage.baseCode = window.btoa($('#username').val() + ":" + $('#password').val());
-                                        window.location = "UserHomeView.html";
+
+                                        // TODO serverpruefung
+                                        navigator.notification.alert('Credential successfully entered.', [], 'Success', 'Ok');
                                     },
                                     function (error) {
+                                        navigator.notification.alert('Invalid password!', [], 'Fail', 'Ok');
                                         console.log("Failed to retrieve a setting: " + error);
                                     }
                             );
                         },
                         function (error) {
+                            navigator.notification.alert('Invalid login!', [], 'Fail', 'Ok');
                             console.log("Failed to retrieve a setting: " + error);
                         }
                 );
+            } else {
+                navigator.notification.alert('Enter credentials.', [], 'Fail', 'Ok');
             }
         });
 
