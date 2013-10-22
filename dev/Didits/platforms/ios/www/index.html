@@ -47,41 +47,28 @@
         </fieldset>
     </form>
 </div>
-<!--habe cordova statt phonegap eingebunden weil ich sonst fehler von plugins bekomme. ich glaube nur cordova reicht. aber nicht 100% sicher-->
 <script type="text/javascript" src="cordova.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
+
 <script type="text/javascript">
     function onDeviceReady() {
         localStorage.diditsUrl = "http://didits.org:8080";
 
         $('#submit').on('click', function () {
             if ($('#username').val().length > 0 && $('#password').val().length > 0) {
-                cordova.require("applicationPreferences").set('userId', $('#username').val(), function (data) {
-                            localStorage.username = $('#username').val();
-                            cordova.require("applicationPreferences").set('password', $('#password').val(), function (data) {
-                                        localStorage.baseCode = window.btoa($('#username').val() + ":" + $('#password').val());
 
-                                        // TODO serverpruefung
-                                        navigator.notification.alert('Credential successfully entered.', [], 'Success', 'Ok');
-                                    },
-                                    function (error) {
-                                        navigator.notification.alert('Invalid password!', [], 'Fail', 'Ok');
-                                        console.log("Failed to retrieve a setting: " + error);
-                                    }
-                            );
-                        },
-                        function (error) {
-                            navigator.notification.alert('Invalid login!', [], 'Fail', 'Ok');
-                            console.log("Failed to retrieve a setting: " + error);
-                        }
-                );
+                localStorage.username = $('#username').val();
+                localStorage.baseCode = window.btoa($('#username').val() + ":" + $('#password').val());
+
+                // TODO serverpruefung
+                navigator.notification.alert('Credential successfully entered.', [], 'Success', 'Ok');
+
             } else {
                 navigator.notification.alert('Enter credentials.', [], 'Fail', 'Ok');
             }
         });
 
     }
-
     document.addEventListener('deviceready', onDeviceReady, false);
 </script>
 </body>
