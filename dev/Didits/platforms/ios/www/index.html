@@ -52,21 +52,24 @@
 
 <script type="text/javascript">
     function onDeviceReady() {
-        localStorage.diditsUrl = "http://didits.org:8080";
-
-        $('#submit').on('click', function () {
-            if ($('#username').val().length > 0 && $('#password').val().length > 0) {
-
-                localStorage.username = $('#username').val();
-                localStorage.baseCode = window.btoa($('#username').val() + ":" + $('#password').val());
-
-                // TODO serverpruefung
-                navigator.notification.alert('Credential successfully entered.', [], 'Success', 'Ok');
-
-            } else {
-                navigator.notification.alert('Enter credentials.', [], 'Fail', 'Ok');
-            }
-        });
+        window.location = "views/UserHomeView.html";
+//        localStorage.diditsUrl = "http://didits.org:8080";
+//
+//        $('#submit').on('click', function () {
+//            if ($('#username').val().length > 0 && $('#password').val().length > 0) {
+//
+//                localStorage.username = $('#username').val();
+//                localStorage.baseCode = window.btoa($('#username').val() + ":" + $('#password').val());
+//
+//                // TODO serverpruefung
+////                navigator.notification.alert('Credential successfully entered.', [], 'Success', 'Ok');
+//                // IF Validation == true then
+//                window.location = "views/UserHomeView.html";
+//
+//            } else {
+//                navigator.notification.alert('Enter credentials.', [], 'Fail', 'Ok');
+//            }
+//        });
 
     }
     document.addEventListener('deviceready', onDeviceReady, false);

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcometo Didits</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../libs/jquery.mobile-1.3.1/css/jquery.mobile-1.3.1.min.css"/>
+    <link rel="stylesheet" href="../css/index.css"/>
+    <script src="../libs/jquery-1.9.1/js/jquery-1.9.1.js"></script>
+    <script src="../libs/jquery.mobile-1.3.1/js/jquery.mobile-1.3.1.min.js"></script>
+
+    <script type="text/javascript" src="../cordova.js"></script>
+</head>
+<body>
+    <!-- @ Page = menu -->
+    <div data-role="page" id="menu">
+        <div data-role="panel" id="myPanel" class="main_nav" data-display="push"  data-dismissible="true">
+            <div class="nav_profile">
+                <div class="nav_name">
+                    <h3>Sideabr</h3>
+                </div>
+            </div>
+        </div>
+        <div data-role="content">
+            <a href="#myPanel" data-icon="grid" data-rel="panel" data-role="button" class="didits-sidebar" ></a>
+        </div>
+    </div>
+    
+    <script type="text/javascript">
+        function onDeviceReady() {
+          
+            
+        }
+    document.addEventListener('deviceready', onDeviceReady, false);
+        </script>
+</body>
+</html>
