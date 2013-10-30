@@ -50,7 +50,9 @@
 		67E7F0EFC8D9420C952F8E97 /* CDVNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0961D2FB1347A4AB9EEF89 /* CDVNotification.m */; };
 		6EFD0ECBA6A841E49C4A9E8F /* CDVNotification.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1A429C3134FE43049D04B397 /* CDVNotification.bundle */; };
 		B574B3620AEC48AC8C32514E /* CDVVibration.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DB830BCFB0245A8A355D90F /* CDVVibration.m */; };
+		CF55D17D6932D9F5EF065014 /* Scanner.html in Resources */ = {isa = PBXBuildFile; fileRef = CF55D41F5EFBEF3B9DCB8D43 /* Scanner.html */; };
 		CF55D3066B96C67FD3E36C50 /* RegistrationView.html in Resources */ = {isa = PBXBuildFile; fileRef = CF55D949794F9CF0374C3AF7 /* RegistrationView.html */; };
+		CF55D379B321ABEEC4EED215 /* ListAllDiditsView.html in Resources */ = {isa = PBXBuildFile; fileRef = CF55D30215BAF1FAC78044D9 /* ListAllDiditsView.html */; };
 		CF55D3F0497F6F9CD0FAA60D /* LoginView.html in Resources */ = {isa = PBXBuildFile; fileRef = CF55D75B7A33CB32B10F09AD /* LoginView.html */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
@@ -125,6 +127,8 @@
 		8DB830BCFB0245A8A355D90F /* CDVVibration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVVibration.m; path = org.apache.cordova.vibration/CDVVibration.m; sourceTree = "<group>"; };
 		911FB428FEBA4EEDBEC65279 /* CDVLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVLocation.h; path = org.apache.cordova.geolocation/CDVLocation.h; sourceTree = "<group>"; };
 		BB0E22C7153D4B899DD9BDA0 /* CDVVibration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CDVVibration.h; path = org.apache.cordova.vibration/CDVVibration.h; sourceTree = "<group>"; };
+		CF55D30215BAF1FAC78044D9 /* ListAllDiditsView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = ListAllDiditsView.html; path = www/views/ListAllDiditsView.html; sourceTree = "<group>"; };
+		CF55D41F5EFBEF3B9DCB8D43 /* Scanner.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Scanner.html; path = www/views/Scanner.html; sourceTree = "<group>"; };
 		CF55D75B7A33CB32B10F09AD /* LoginView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = LoginView.html; path = www/views/LoginView.html; sourceTree = "<group>"; };
 		CF55D949794F9CF0374C3AF7 /* RegistrationView.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = RegistrationView.html; path = www/views/RegistrationView.html; sourceTree = "<group>"; };
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
@@ -215,6 +219,8 @@
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				CF55D949794F9CF0374C3AF7 /* RegistrationView.html */,
 				CF55D75B7A33CB32B10F09AD /* LoginView.html */,
+				CF55D41F5EFBEF3B9DCB8D43 /* Scanner.html */,
+				CF55D30215BAF1FAC78044D9 /* ListAllDiditsView.html */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -429,6 +435,8 @@
 				6EFD0ECBA6A841E49C4A9E8F /* CDVNotification.bundle in Resources */,
 				CF55D3066B96C67FD3E36C50 /* RegistrationView.html in Resources */,
 				CF55D3F0497F6F9CD0FAA60D /* LoginView.html in Resources */,
+				CF55D17D6932D9F5EF065014 /* Scanner.html in Resources */,
+				CF55D379B321ABEEC4EED215 /* ListAllDiditsView.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

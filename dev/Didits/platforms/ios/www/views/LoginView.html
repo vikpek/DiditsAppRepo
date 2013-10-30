@@ -45,11 +45,12 @@
                 localStorage.username = $('#username').val();
                 localStorage.baseCode = window.btoa($('#username').val() + ":" + $('#password').val());
 
+                // TODO serverpruefung
                 if (true) {
-                    // TODO serverpruefung
+                    // TODO thread mit server sync starten
                     window.location = "UserHomeView.html";
                 } else {
-
+                    navigator.notification.alert('Sorry - we could not log you in using the credentials.', [], 'Fail', 'Ok');
                 }
 
             } else {
