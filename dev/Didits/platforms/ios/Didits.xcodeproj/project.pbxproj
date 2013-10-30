@@ -55,7 +55,6 @@
 		CF55D3F0497F6F9CD0FAA60D /* LoginView.html in Resources */ = {isa = PBXBuildFile; fileRef = CF55D75B7A33CB32B10F09AD /* LoginView.html */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
 		F840E1F1165FE0F500CFE078 /* config.xml in Resources */ = {isa = PBXBuildFile; fileRef = F840E1F0165FE0F500CFE078 /* config.xml */; };
-		F028B7997F5B49F9A016FBCD /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C41BB5D57A2458B99EBC5F5 /* CDVInAppBrowser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,8 +133,6 @@
 		D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x~iphone.png"; sourceTree = "<group>"; };
 		EF0961D2FB1347A4AB9EEF89 /* CDVNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CDVNotification.m; path = org.apache.cordova.dialogs/CDVNotification.m; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = Didits/config.xml; sourceTree = "<group>"; };
-		0C41BB5D57A2458B99EBC5F5 /* CDVInAppBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVInAppBrowser.m"; path = "org.apache.cordova.inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; };
-		7DC0F21B2398405A83631C16 /* CDVInAppBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVInAppBrowser.h"; path = "org.apache.cordova.inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,8 +292,6 @@
 				BB0E22C7153D4B899DD9BDA0 /* CDVVibration.h */,
 				EF0961D2FB1347A4AB9EEF89 /* CDVNotification.m */,
 				4F1FB0CADDCD409DBACF78E1 /* CDVNotification.h */,
-				0C41BB5D57A2458B99EBC5F5 /* CDVInAppBrowser.m */,
-				7DC0F21B2398405A83631C16 /* CDVInAppBrowser.h */,
 			);
 			name = Plugins;
 			path = Didits/Plugins;
@@ -474,7 +469,6 @@
 				45D8E63C7D0E48ACBB06D55D /* CDVLocation.m in Sources */,
 				B574B3620AEC48AC8C32514E /* CDVVibration.m in Sources */,
 				67E7F0EFC8D9420C952F8E97 /* CDVNotification.m in Sources */,
-				F028B7997F5B49F9A016FBCD /* CDVInAppBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
