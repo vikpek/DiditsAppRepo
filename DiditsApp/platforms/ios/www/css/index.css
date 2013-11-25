@@ -46,8 +46,8 @@ body {
 }
 
 /* Portrait layout (default) */
-.app {
-    background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+.didits-login {
+  background:url(../img/logo.png) no-repeat center top;
     position:absolute;             /* position in the center of the screen */
     left:50%;
     top:50%;
@@ -70,6 +70,8 @@ body {
 }
 
 h1 {
+    position: absolute;
+    top: -80px;
     font-size:24px;
     font-weight:normal;
     margin:0px;
