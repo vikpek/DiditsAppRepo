@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tracking Test</title>
+</head>
+<body onload="pageLoad()">
+
+<div data-role="page">
+    <div data-role="header">
+        <a href="javascript:history.back()" data-icon="arrow-l">Back</a>
+        <!--<a href="#" data-icon="gear">nil</a>-->
+    </div>
+    <div data-role="content">
+        <p id="geolocation">Finding geolocation...</p>
+        </ul>
+    </div>
+    <script>
+        $(document).ready(function () {
+            document.addEventListener("deviceready", loaded, false);
+            var watchID = null;
+
+            function loaded() {
+                watchID = navigator.geolocation.watchPosition(success, error, { frequency: 3000 });
+            }
+
+            function success(position) {
+                var element = document.getElementById('geolocation');
+                element.innerHTML = 'Latitude: ' + position.coords.latitude + '<br />' +
+                        'Longitude: ' + position.coords.longitude + '<br />' +
+                        'Altitude: ' + position.coords.altitude + '<br />' +
+                        'Accuracy: ' + position.coords.accuracy + '<br />' +
+                        'Altitude Accuracy: ' + position.coords.altitudeAccuracy + '<br />' +
+                        'Heading: ' + position.coords.heading + '<br />' +
+                        'Speed: ' + position.coords.speed + '<br />' +
+                        'Timestamp: ' + new Date(position.timestamp) + '<br />' +
+                        '<hr>' + element.innerHTML;
+            }
+
+            function error(error) {
+                alert(error.message);
+            }
+        });
+    </script>
+</div>
+
+</body>
+</html>
