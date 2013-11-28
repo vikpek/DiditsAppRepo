@@ -1,140 +1,30 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Didits List</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <title>Welcome to Didits</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="../libs/jquery.mobile-1.3.1/css/jquery.mobile-1.3.1.min.css"/>
+            <script src="../libs/jquery-1.9.1/js/jquery-1.9.1.js"></script>
+            <script src="../libs/jquery.mobile-1.3.1/js/jquery.mobile-1.3.1.min.js"></script>
+            <script type="text/javascript" src="../cordova-2.7.0.js"></script>
+    </head>
+    <body onload="pageLoad()">
         
-    <link rel="stylesheet" href="../libs/jquery.mobile-1.3.1/css/jquery.mobile-1.3.1.min.css"/>
-    <link rel="stylesheet" href="../css/views/userHomeView.css"/>
-    <link rel="stylesheet" href="../css/views/ListVNearbyDidits.css"/>
-    <link rel="stylesheet" href="../css/sidr/css/jquery.sidr.light.css">
-    
-    <script src="../libs/jquery-1.9.1/js/jquery-1.9.1.js"></script>
-    <script src="../libs/jquery.mobile-1.3.1/js/jquery.mobile-1.3.1.min.js"></script>
-
-    <script type="text/javascript" src="../cordova.js"></script>
-
-    <script type="text/javascript" src="../plugins/MapKit.js"></script>
-    <script type="text/javascript" src="../plugins/applicationPreferences.js"></script>
-    <script type="text/javascript" src="../plugins/barcodescanner.js"></script>
-    <script src="../libs/sidr/js/jquery.sidr.min.js"></script>
-
-    <script src="../libs/core/restCore.js"></script>
-    <script src="../libs/core/diditsDB.js"></script>
-    <script src="../libs/core/listGenerator.js"></script>
-    <script src="../libs/core/distanceCalculator.js"></script>
-    <script src="../libs/core/pinGenerator.js"></script>
-    <script src="../libs/core/mapUtility.js"></script>
-    <script src="../libs/core/badgeGenerator.js"></script>
-</head>
-<body onload="pageLoad()">
-<div data-role="page">
-    <div class='didits_header'>
-        <a id="remote-content-menu" href="#remote-content-menu"><img src='../img/arrow2black.png'
-                                                                     class='sidebar-arrow-right'></a>
-    </div>
-
-    <div data-role="content" class='didits-userhomeview'>
-        <a href="ListVAllDidits.html" data-role="button" class="didits-btn didits-btn-homeview didits-btn-alldidit">
-            <div class='didits-btn-text'>All Didits</div>
-        </a>
-        <a href="ListVOwnDidits.html" data-role="button" class="didits-btn didits-btn-dummy">
-            <div class='didits-btn-text'>My Didits</div>
-        </a>
-        <a href="ListVNearbyDidits.html" data-role="button" class="didits-btn didits-btn-dummy">
-            <div class='didits-btn-text'>Nearby Didits</div>
-        </a>
-        <a href="ScannerView.html" data-role="button" class="didits-btn didits-btn-dummy">
-            <div class='didits-btn-text'>QR Scanner</div>
-        </a>
-        <a href="TrackingTest.html" data-role="button" class="didits-btn didits-btn-dummy">
-            <div class='didits-btn-text'>TrackingTest</div>
-        </a>
-        <a href="ScannerFakeView.html" data-role="button" class="didits-btn didits-btn-dummy">
-            <div class='didits-btn-text'>Fake Scanner</div>
-        </a>
-        <a href="StartView.html" data-role="button" class="didits-btn didits-btn-dummy">
-            <div class='didits-btn-text'>START</div>
-        </a>
-        <a href="Sidebar.html" data-role="button" class="didits-btn didits-btn-dummy">
-            <div class='didits-btn-text'>Sidebar</div>
-        </a>
-        <a href="UserProfileView.html" data-role="button" class="didits-btn didits-btn-dummy">
-            <div class='didits-btn-text'>UserProfileView</div>
-        </a>
-    </div>
-    <script>
-
-        function pageLoad() {
-            document.addEventListener("deviceready", function () {
-
-                var user = '';
-                var pass = '';
-                cordova.require("applicationPreferences").get('userId', function (result) {
-                            user = result;
-                        }, function (error) {
-                            console.log("Failed to retrieve a setting: " + error);
-                        }
-                );
-                cordova.require("applicationPreferences").get('password', function (result) {
-                            pass = result;
-                        }, function (error) {
-                            console.log("Failed to retrieve a setting: " + error);
-                        }
-                );
-
-                navigator.geolocation.getCurrentPosition(
-                        function (pos) {
-                            localStorage.coord = pos.coords;
-                        },
-                        function (err) {
-                            alert(err);
-                        });
-
-
-                $.ajax({
-                    url: localStorage.diditsUrl + '/didits.json',
-                    headers: {
-                        Accept: "application/json; charset=utf-8",
-                        Authorization: "Basic " + localStorage.baseCode
-                    },
-                    data: "data",
-                    success: function (response) {
-                        $.getJSON(localStorage.diditsUrl + "/didits.json", function (data) {
-                            diditsDB.addDidits(data, true);
-
-                        });
-                        $.getJSON(localStorage.diditsUrl + "/didits/all", function (data) {
-                            diditsDB.addDidits(data, false);
-                        });
-                    }
-                });
-
-                //check scaleUnit
-                cordova.require("applicationPreferences").get('scaleUnit', function (result) {
-                        },
-                        function (error) {
-                            window.plugins.applicationPreferences.set('scaleUnit', 'metric', function (result) {
-
-                            }, function (error) {
-                                console.log("Failed to set scaleUnit: " + error);
-                            });
-
-                        }
-                );
-
-
-            });
-
-
-            $('#remote-content-menu').sidr({
-                name: 'sidr-remote-content',
-                source: 'Sidebar.html'
-            });
-
-
-        }
-    </script>
-</div>
-</body>
+        <div data-role="page">
+            <div data-role="header">
+                <h1>Login View</h1>
+            </div>
+            <div data-role="content">
+                <h1>Headline</h1>
+            </div>
+            <script>
+                function pageLoad() {
+                    document.addEventListener("deviceready", function () {
+                        
+                    }, false);
+                }
+            </script>
+        </div>
+    </body>
 </html>
+
