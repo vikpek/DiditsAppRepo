@@ -33,7 +33,7 @@
         function pageLoad() {
             document.addEventListener("deviceready", function () {
                 localStorage.diditsUrl = "http://didits.org:8080";
-
+                                      alert('asd');
                 $('#submit').on('click', function () {
                     if ($('#username').val().length > 0 && $('#password').val().length > 0) {
                         cordova.require("applicationPreferences").set('userId', $('#username').val(), function (data) {
