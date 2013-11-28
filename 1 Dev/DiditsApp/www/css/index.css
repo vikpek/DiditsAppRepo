@@ -113,3 +113,10 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+ul.nav.nav-tabs{
+    min-height: 20px;
+}
+.headericon{
+    margin-left: 20px;
+}
+
