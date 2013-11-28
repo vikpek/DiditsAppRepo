@@ -1,0 +1,104 @@
+@font-face {
+    font-family: "Helvetica Neue";
+    src: url(../../media/static/fonts/helveticaNeue/HelveticaNeueLTStd-UltLt.otf) format("truetype");
+}
+
+.didits-userhomeview{
+    background-color:#ffffff;
+}
+
+.didits-btn{
+    display: inline-block;
+    background: #bdc3c7;
+    padding: 9px 12px 10px;
+    line-height: 22px;
+    text-decoration: none;
+    text-shadow: none;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    -webkit-transition: 0.25s;
+    -moz-transition: 0.25s;
+    -o-transition: 0.25s;
+    transition: 0.25s;
+    -webkit-backface-visibility: hidden;
+    max-width: 115px;
+    font-family: "Helvetica Neue";
+    font-weight:100;
+}
+.didits-btn-text{
+    width: 100px;
+}
+
+.didits-btn-homeview{
+    background-size: 54px 50px;
+    min-width: 65px;
+}
+
+.didits-btn-alldidit{
+    background: url(../../media/static/images/worldflagpin.png) -5px 10px no-repeat;
+    }
+
+.didits-btn-aroundme{
+    background: url(../../media/static/images/diditsaroundme.png) -5px 13px no-repeat;
+    background-size: 50px 40px;
+
+}
+
+.didits-btn-dummy{
+    background: url(../../media/static/images/dummyskull.png) 0px 12px no-repeat;
+    background-size: 40px 40px;
+
+}
+
+.didits_scale_unit .ui-slider-switch {
+    
+    position: relative;
+    top: 53px;
+    width: 11em;
+    right: -13px;
+
+
+
+}
+
+.didits_scale_unit{
+    position: absolute !important;
+    top: 10px;
+
+}
+
+.didits_scale_unit_title {
+
+    position: relative;
+    top: 35px;
+    left: 10px;
+
+
+}
+.ui-content {
+    overflow: visible !important;
+
+}
+
+#didits_header_left{
+    float:left;
+}
+
+
+#didits_header_center{
+
+}
+#didits_header_right{
+    float:right;
+}
+
+.sidebar-arrow-right{
+    position: relative;
+    top:20px;
+  height:20px;
+}
+
