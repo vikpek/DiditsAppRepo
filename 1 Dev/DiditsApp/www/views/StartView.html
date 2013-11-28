@@ -3,22 +3,33 @@
 <head>
     <title>My Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="libs/jquery.mobile-1.3.1/css/jquery.mobile-1.3.1.min.css"/>
-
-    <script src="phonegap.js"></script>
-    <script src="libs/jquery-2.0.2/js/jquery-2.0.2.min.js"></script>
-    <script src="libs/jquery.mobile-1.3.1/js/jquery.mobile-1.3.1.min.js"></script>
-    <script type="text/javascript" src="js/index.js"></script>
-
+    <link rel="stylesheet" href="../libs/jquery.mobile-1.3.1/css/jquery.mobile-1.3.1.min.css"/>
+    <script src="../libs/jquery-1.9.1/js/jquery-1.9.1.js"></script>
+    <script src="../libs/jquery.mobile-1.3.1/js/jquery.mobile-1.3.1.min.js"></script>
+    <script type="text/javascript" src="../cordova-2.7.0.js"></script>
     <script type="text/javascript" src="plugins/applicationPreferences.js"></script>
     <script type="text/javascript" src="plugins/MapKit.js"></script>
 
 </head>
 <body onload="pageLoad()">
-<div data-role="page">
+<div data-role="page" data-theme="b">
+    <div data-role="header" style="background-color:#e9e9e9;">
+        <a href="javascript:history.back()" data-icon="arrow-l"></a>
+        <h1>Edit Contact</h1>
+        <a href="index.html" data-icon="check">Save</a>
+    </div>
     <h1>Home</h1>
 </div>
-
+<script>
+    function pageLoad() {
+       document.addEventListener("deviceready", function () {
+            alert('ss');
+            if (parseFloat(window.device.version) === 7.0) {
+                document.body.style.marginTop = "20px";
+            }
+        });
+    }
+</script>
 </body>
 </html>
 
