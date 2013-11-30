@@ -4,28 +4,44 @@
         <title>Welcome to Didits</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
             <link rel="stylesheet" href="../libs/jquery.mobile-1.3.1/css/jquery.mobile-1.3.1.min.css"/>
+            <link rel="stylesheet" href="../css/sidr/css/jquery.sidr.light.css">
             <link rel="stylesheet" href="../css/index.css"/>
+            <link rel="stylesheet" href="../css/views/userHomeView.css"/>
             <script src="../libs/jquery-1.9.1/js/jquery-1.9.1.js"></script>
             <script src="../libs/jquery.mobile-1.3.1/js/jquery.mobile-1.3.1.min.js"></script>
             <script type="text/javascript" src="../cordova-2.7.0.js"></script>
             <link href="../external/bootstrap/css/bootstrap.css" rel="stylesheet">
+            <script src="../libs/sidr/js/jquery.sidr.min.js"></script>
     </head>
     <body onload="pageLoad()">
         
         <div data-role="page">
             <div data-role="header">
                 <ul class="nav nav-tabs">
-                    <li class="glyphicon headericon glyphicon-align-justify"></li>
-                    <li class="glyphicon headericon glyphicon-chevron-left"></li>
+                    <li class="glyphicon headericon glyphicon-align-justify" id="remote-content-menu">
+                    </li>
                 </ul>
             </div>
             <div data-role="content">
-                <h1>Headline</h1>
+                <div class="mapplaceholder"> </div>
+                <div class="diditslistplaceholder"> </div>
+                <div class='qrScanner'>
+                   <a href="Scanner.html"><span class="glyphicon glyphicon-camera"></span>
+                    </a>
+                </div>
             </div>
             <script>
                 function pageLoad() {
-                    document.addEventListener("deviceready", function () {
-                        
+                    document.addEventListener("deviceready", function (){
+                        var width = $(window).width();
+                        var styles = {'position':'absolute','left':width/2-25 +'px'};
+                        $('.qrScanner').css(styles);
+
+                        $('#remote-content-menu').sidr({
+                            name: 'sidr-remote-content',
+                            source: 'Sidebar.html'
+                        });
+
                     }, false);
                 }
             </script>
