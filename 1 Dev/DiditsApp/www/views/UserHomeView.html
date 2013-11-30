@@ -3,15 +3,20 @@
     <head>
         <title>Welcome to Didits</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-            <link rel="stylesheet" href="../libs/jquery.mobile-1.3.1/css/jquery.mobile-1.3.1.min.css"/>
-            <link rel="stylesheet" href="../css/sidr/css/jquery.sidr.light.css">
-            <link rel="stylesheet" href="../css/index.css"/>
-            <link rel="stylesheet" href="../css/views/userHomeView.css"/>
-            <script src="../libs/jquery-1.9.1/js/jquery-1.9.1.js"></script>
-            <script src="../libs/jquery.mobile-1.3.1/js/jquery.mobile-1.3.1.min.js"></script>
-            <script type="text/javascript" src="../cordova-2.7.0.js"></script>
-            <link href="../external/bootstrap/css/bootstrap.css" rel="stylesheet">
-            <script src="../libs/sidr/js/jquery.sidr.min.js"></script>
+        <link rel="stylesheet" href="../libs/jquery.mobile-1.3.1/css/jquery.mobile-1.3.1.min.css"/>
+        <link rel="stylesheet" href="../css/sidr/css/jquery.sidr.light.css">
+        <link rel="stylesheet" href="../css/index.css"/>
+        <link rel="stylesheet" href="../css/views/userHomeView.css"/>
+        <script src="../libs/jquery-1.9.1/js/jquery-1.9.1.js"></script>
+        <script type="text/javascript">
+            $(document).bind("mobileinit", function() {
+                $.mobile.defaultPageTransition = "slidefade";
+            });
+        </script>
+        <script src="../libs/jquery.mobile-1.3.1/js/jquery.mobile-1.3.1.min.js"></script>
+        <script type="text/javascript" src="../cordova-2.7.0.js"></script>
+        <link href="../external/bootstrap/css/bootstrap.css" rel="stylesheet">
+        <script src="../libs/sidr/js/jquery.sidr.min.js"></script>
     </head>
     <body onload="pageLoad()">
         

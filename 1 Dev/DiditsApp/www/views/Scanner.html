@@ -1,24 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>User Home View</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../external/flatui/jquery.mobile.flatui.min.css"/>
-    <link rel="stylesheet" href="../css/views/userHomeView.css"/>
-    
-    <link rel="stylesheet" href="../libs/jquery.mobile-1.3.1/css/jquery.mobile-1.3.1.min.css"/>
-    <script src="../libs/jquery-1.9.1/js/jquery-1.9.1.js"></script>
-    <script src="../libs/jquery.mobile-1.3.1/js/jquery.mobile-1.3.1.min.js"></script>
-
-    <script type="text/javascript" src="../cordova.js"></script>
+    <title>Scanner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">    
 </head>
+
 <body>
 <div data-role="page" id="menu">
     <div data-role="header">
-        <a href="javascript:history.back()" data-icon="arrow-l">Back</a>
-
-        <h1>Fake QR Scanner</h1>
-
+        <ul class="nav nav-tabs">
+            <li id='historyBack' class="glyphicon glyphicon-chevron-left"></li>
+        </ul>
     </div>
     <div data-role="content">
         <div data-role="fieldcontain">
@@ -27,49 +19,16 @@
         </div>
         <input type="button" data-theme="b" name="submit" id="submit" value="Submit">
     </div>
+    <script>
+     
+        document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+                $('#historyBack').click(function(){
+                    event.preventDefault();
+                    history.back(1);
+                });
+            }
+    </script>
 </div>
-<script type="text/javascript">
-    function onDeviceReady() {
-        $('#submit').on('click', function () {
-            navigator.notification.alert('Not implemented yet.', [], 'Fail', 'Ok');
-//            window.plugins.applicationPreferences.get('userId', function (userResult) {
-//                        navigator.geolocation.getCurrentPosition(
-//                                function (pos) {
-//                                    var ts = +new Date;
-//                                    var user_didit = {
-//                                        "diditId": $('#qrid').val(),
-//                                        "userId": userResult,
-//                                        "achievedTimestamp": ts + "",
-//                                        "latitude": "" + pos.coords.latitude,
-//                                        "longitude": "" + pos.coords.longitude
-//                                    }
-//                                    console.log(JSON.stringify(user_didit));
-//
-//
-//                                    function onSuccess() {
-//                                        console.log("Starting UserDidit post procedure");
-//                                        restCore.postUserDidit(user_didit);
-//                                    }
-//
-//                                    function onError() {
-//                                        console.log("Fail for UserDiditValidation");
-//                                    }
-//
-//                                    distanceCalculator.validateUserDidit(user_didit, onSuccess, onError);
-//
-//                                },
-//                                function (err) {
-//                                    console.log(err);
-//                                });
-//                    }, function (error) {
-//                        alert("Could not retrieve user login");
-//                        history.back();
-//                        console.log("Failed to retrieve a setting: " + error);
-//                    }
-//            );
-        });
-    }
-    document.addEventListener('deviceready', onDeviceReady, false);
-</script>
 </body>
-</html>
+</html> 

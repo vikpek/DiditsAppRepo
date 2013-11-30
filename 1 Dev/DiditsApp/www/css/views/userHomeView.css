@@ -72,3 +72,6 @@ ul.nav.nav-tabs{
     top: 2px;
     position: relative;
 }
+li#remote-content-menu.glyphicon.headericon.glyphicon-align-justify, #historyBack{
+    margin-left:5px;
+}
