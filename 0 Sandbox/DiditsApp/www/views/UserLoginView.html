@@ -33,26 +33,33 @@
         function pageLoad() {
             document.addEventListener("deviceready", function () {
                 localStorage.diditsUrl = "http://didits.org:8080";
-                $('#submit').on('click', function () {
-                                if ($('#username').val().length > 0 && $('#password').val().length > 0) {
-                                  localStorage.username = $('#username').val();
-                                  localStorage.baseCode = window.btoa($('#username').val() + ":" + $('#password').val());
-                                  
-                                  // TODO serverpruefung
-                                  if (true) {
-                                    // TODO thread mit server sync starten
-                                    window.location = "UserHomeView.html";
-                                  } else {
-                                    navigator.notification.alert('Sorry - we could not log you in using the credentials.', [], 'Fail', 'Ok');
-                                  }
-                                  
-                                  } else {
-                                    navigator.notification.alert('Enter credentials.', [], 'Fail', 'Ok');
-                                  }
-                                });
+                if(localStorage.username.length > 0 && localStorage.baseCode.length > 0){
+                    forwardingToHomeView();
+                }else{
+                    $('#submit').on('click', function () {
+                        if ($('#username').val().length > 0 && $('#password').val().length > 0) {
+                            localStorage.username = $('#username').val();
+                            localStorage.baseCode = window.btoa($('#username').val() + ":" + $('#password').val());
 
-                    }, false);
+                            forwardingToHomeView();
+                        } else {
+                            navigator.notification.alert('Enter credentials.', [], 'Fail', 'Ok');
+                        }
+                    });
                 }
+
+            }, false);
+        }
+
+        function forwardingToHomeView(){
+            // TODO serverpruefung
+            if (true) {
+                // TODO thread mit server sync starten
+                window.location = "UserHomeView.html";
+            } else {
+                navigator.notification.alert('Sorry - we could not log you in using the credentials.', [], 'Fail', 'Ok');
+            }
+        }
     </script>
 </div>
 </body>
