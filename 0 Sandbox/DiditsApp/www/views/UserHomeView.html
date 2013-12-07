@@ -81,9 +81,15 @@
                     },
                     data: "data",
                     success: function (response) {
+
+                        $.getJSON(localStorage.diditsUrl + "/didits_auth.json", function (data) {
+                            diditsDB.addDidits(data, true);
+                        });
+
                         $.getJSON(localStorage.diditsUrl + "/didits.json", function (data) {
                             diditsDB.addDidits(data, false);
                         });
+
                         console.log("UserHomeView ws response:" + response);
                     },
                     error: function(response){
