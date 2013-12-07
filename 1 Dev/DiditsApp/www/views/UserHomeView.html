@@ -47,6 +47,51 @@
                             source: 'Sidebar.html'
                         });
 
+
+
+                        // just cache the most current position
+                        navigator.geolocation.getCurrentPosition(
+                                function (pos) {
+                                    localStorage.coord = pos.coords;
+                                },
+                                function (err) {
+                                    alert(err);
+                                }
+                        );
+
+
+                        // rest request
+                        // TODO distinguishin between owned and all didits!
+                        $.ajax({
+                            url: localStorage.diditsUrl + '/didits.json',
+                            headers: {
+                                Accept: "application/json; charset=utf-8",
+                                Authorization: "Basic " + localStorage.baseCode
+                            },
+                            data: "data",
+                            success: function (response) {
+                                $.getJSON(localStorage.diditsUrl + "/didits.json", function (data) {
+                                    diditsDB.addDidits(data, false);
+                                });
+                                console.log("UserHomeView ws response:" + response);
+                            },
+                            error: function(response){
+                                console.log("UserHomeView ws response:" + response);
+                            }
+                        });
+
+                        //check scaleUnit
+                        cordova.require("applicationPreferences").get('scaleUnit', function (result) {
+                                },
+                                function (error) {
+                                    window.plugins.applicationPreferences.set('scaleUnit', 'metric', function (result) {
+
+                                    }, function (error) {
+                                        console.log("Failed to set scaleUnit: " + error);
+                                    });
+                                }
+                        );
+
                     }, false);
                 }
             </script>
