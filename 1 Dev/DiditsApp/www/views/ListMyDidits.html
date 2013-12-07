@@ -3,7 +3,7 @@
     <head>
         <title>Didits List</title>
     </head>
-    <body onload="pageLoad()">
+    <body>
         <div data-role="page">
             <div data-role="header">
                 <ul class="nav nav-tabs">
@@ -15,14 +15,14 @@
                 </ul>
             </div>
             <script>
-                
-                document.addEventListener("deviceready", onDeviceReady, false);
-                
+
+                document.addEventListener("deviceready", onDeviceReady, false);    
                 function onDeviceReady() {
                     $('#historyBack').click(function(){
                         event.preventDefault();
                         history.back(1);
                     });
+
                     listGenerator.generateOwnDiditList();
                 }
             
