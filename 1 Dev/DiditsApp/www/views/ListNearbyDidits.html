@@ -5,11 +5,33 @@
 </head>
 <body onload="pageLoad()">
 <div data-role="page">
-    <div data-role="header">
+<div data-role="header">
         <ul class="nav nav-tabs">
             <li id='historyBack' class="glyphicon glyphicon-chevron-left"></li>
         </ul>
     </div>
+    <div class="container" data-theme="a">
+        <div class="block" id="chooser" data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="horizontal" data-mini="true">
+                <input id="radiolist" name="" value="vlist" type="radio">
+                <label for="radiolist">
+                    List
+                </label>
+                <input id="radiomap" name="" value="vmap" type="radio">
+                <label for="radiomap">
+                    Map
+                </label>
+            </fieldset>
+        </div>
+        <div class="block" data-role="fieldcontain">
+            <select id="dropdownmenu" name="" data-mini="true">
+                <option value="vmenu">
+                    ...
+                </option>
+            </select>
+        </div>
+    </div>
+
     <div data-role="content">
         <ul class="didit-list" data-role="listview" data-inset="true">
         </ul>
@@ -40,6 +62,11 @@
 
                     $("#back").click(function () {
                         mapKit.hideMap();
+                    });
+
+                    $('#historyBack').click(function(){
+                        event.preventDefault();
+                        history.back(1);
                     });
 
                 }
