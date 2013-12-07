@@ -70,7 +70,6 @@ var diditsDB = {
                             if (i != result.rows.length - 1) {
                                 diditList = diditList + ',';
                             }
-                            console.log('.');
                         }
                         diditList = diditList + ']';
                         diditCallback(JSON.parse(diditList));

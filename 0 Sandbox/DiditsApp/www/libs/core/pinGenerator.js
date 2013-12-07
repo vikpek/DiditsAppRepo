@@ -43,7 +43,7 @@ var pinGenerator = {
 
         function onSuccess(position) {
             diditsDB.findAllDidits(function (didits) {
-                constructPins(distanceCalculator.calculateDistance(100, didits, position.coords.latitude, position.coords.longitude), function (diditPins) {
+                constructPins(distanceCalculator.calculateDistance(20, didits, position.coords.latitude, position.coords.longitude), function (diditPins) {
                     pinCallback(diditPins);
                 });
             });
