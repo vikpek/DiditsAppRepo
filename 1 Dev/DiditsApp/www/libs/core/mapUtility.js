@@ -54,11 +54,11 @@ var mapUtility = {
         });
     },
     displayMap: function displayMap() {
-    var success = function () {
-            };
-    initMap(function () {
-            mapKit.showMap(success, error);
-            
+        var success = function () {
+
+        };
+            initMap(function () {
+                mapKit.showMap(success, error);
             });
 },
     displayMapForNearby: function displayMapForNearby() {
