@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Profile</title>
+</head>
+<body onload="pageLoad()">
+<!-- Home -->
+<div data-role="page" id="page1">
+    <div data-role="header">
+        <ul class="nav nav-tabs">
+            <li id='historyBack' class="glyphicon glyphicon-chevron-left"></li>
+        </ul>
+    </div>
+    <div data-role="content">
+        <div data-role="fieldcontain">
+            <label for="ta-username">
+                Nickname
+            </label>
+            <textarea name="" id="bUsername" disabled="true" placeholder="" data-mini="true"></textarea>
+        </div>
+        <div data-role="fieldcontain">
+            <label for="maildress">
+                Mailaddress
+            </label>
+            <textarea name="" id="maildadress" placeholder="" data-mini="true"></textarea>
+        </div>
+        <div class="btn-group">
+            <button id="bSave" type="button" class="btn btn-default">Save</button>
+            <button id="bLogout" type="button" class="btn btn-default">Logout</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+                $('#bUsername').text(localStorage.username + "");
+
+                $('#historyBack').click(function(){
+                    event.preventDefault();
+                    history.back(1);
+                });
+            }
+    </script>
+</div>
+</body>
+</html>

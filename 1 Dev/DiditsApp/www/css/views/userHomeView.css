@@ -1,8 +1,3 @@
-@font-face {
-    font-family: "Helvetica Neue";
-    src: url(../../media/static/fonts/helveticaNeue/HelveticaNeueLTStd-UltLt.otf) format("truetype");
-}
-
 .didits-userhomeview{
     background-color:#ffffff;
 }
@@ -44,16 +39,14 @@
     alignment-baseline: central;
     width: auto;
     height: 150px;
-} 
+}
+
 .diditslistplaceholder{
     background-color: green;
     alignment-baseline: central;
     width: auto;
     height: 200px;
     margin-top: 20px;
-}
-.qrScanner a{
-    text-decoraiton: none;
 }
 
 .qrScanner {
@@ -74,4 +67,14 @@ ul.nav.nav-tabs{
 }
 li#remote-content-menu.glyphicon.headericon.glyphicon-align-justify, #historyBack{
     margin-left:5px;
+}
+.sidr ul li{
+    line-height: 20px;
+
+}
+
+.sidebar li.sidebarGroupHeader{
+    line-height: 35px;
+    margin-left: 10px;
+
 }

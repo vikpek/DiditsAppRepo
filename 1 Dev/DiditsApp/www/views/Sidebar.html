@@ -11,72 +11,84 @@
 <div data-role="page">
 
     <div data-role="content">
-        <ul data-role="listview" data-divider-theme="b" data-inset="true">
-            <li data-role="list-divider" role="heading">
+        <ul class='sidebar' data-role="list-group" data-divider-theme="b" data-inset="true">
+            <li class='sidebarGroupHeader' data-role="list-divider" role="heading">
                 Settings
             </li>
-            <li data-theme="c">
-                <a href="#" data-transition="slide">
+            <li class='list-group-item'>
+                <a href="UserProfileView.html" data-transition="slide">
                     My Profile
                 </a>
             </li>
-            <li data-theme="c">
+            <li class='list-group-item'>
                 <a href="#page1" data-transition="slide">
                     Button
                 </a>
             </li>
-            <li data-role="list-divider" role="heading">
+            <li class='sidebarGroupHeader' data-role="list-divider" role="heading">
                 Second part
             </li>
-            <li data-theme="c">
+            <li class='list-group-item'>
                 <a href="#" data-transition="slide">
                     ...
                 </a>
             </li>
-            <li data-theme="c">
+            <li class='list-group-item'>
                 <a href="#page1" data-transition="slide">
                     ...
                 </a>
             </li>
-            <li data-theme="c">
+            <li class='list-group-item'>
                 <a href="#page1" data-transition="slide">
                     ...
                 </a>
             </li>
-            <li data-theme="c">
+          <li class='list-group-item'>
                 <a href="#page1" data-transition="slide">
                     ...
                 </a>
             </li>
-            <li data-theme="c">
+           <li class='list-group-item'>
                 <a href="#page1" data-transition="slide">
                     ...
                 </a>
             </li>
-            <li data-theme="c">
+            <li class='list-group-item'>
                 <a href="#page1" data-transition="slide">
                     ...
                 </a>
             </li>
-            <li data-theme="c">
+            <li class='list-group-item'>
                 <a href="#page1" data-transition="slide">
                     ...
                 </a>
             </li>
-            <li data-theme="c">
+            <li class='list-group-item'>
                 <a href="#page1" data-transition="slide">
                     ...
                 </a>
             </li>
-            <li data-theme="c">
-                <a href="#page1" data-transition="slide">
-                    ...
+            <li class='list-group-item'>
+                <a class="glyphicon glyphicon-remove-circle" href="#" data-transition="slide">
+                    Logout
                 </a>
             </li>
 
         </ul>
     </div>
-
+    <script>
+        document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+                $('.sidebar').click(function(){
+                    $.sidr('close', 'sidr-remote-content');
+                });
+                $("#Logout").on("tap", function () {
+                    localStorage.username = "";
+                    localStorage.baseCode = "";
+                    window.location.href = "UserLoginView.html";
+                });
+            }
+    </script>
 </div>
 
 <style type="text/css">
