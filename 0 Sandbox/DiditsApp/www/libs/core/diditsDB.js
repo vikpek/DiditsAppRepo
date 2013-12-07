@@ -52,8 +52,6 @@ var diditsDB = {
         $.each(didits, function (key, val) {
             db.transaction(function (transaction) {
                 transaction.executeSql('INSERT INTO Didit(diditId, payload, own)VALUES(?, ?, ?)', [val.id, JSON.stringify(val), own], nullHandler, errorHandler);
-                console.log('!');
-
             });
         });
     },
