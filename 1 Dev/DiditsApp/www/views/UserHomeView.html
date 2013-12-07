@@ -54,15 +54,13 @@
                             source: 'Sidebar.html'
                         });
 
-
-
                         // just cache the most current position
                         navigator.geolocation.getCurrentPosition(
                                 function (pos) {
                                     localStorage.coord = pos.coords;
                                 },
                                 function (err) {
-                                    alert(err);
+                                    console.log('error in get geo location ' + err);
                                 }
                         );
 
@@ -85,7 +83,6 @@
                                 $.getJSON(localStorage.diditsUrl + "/didits.json", function (data) {
                                     diditsDB.addDidits(data, false);
                                 });
-                                console.log("UserHomeView ws response:" + response);
                             },
                             error: function(response){
                                 console.log("UserHomeView ws response:" + response);

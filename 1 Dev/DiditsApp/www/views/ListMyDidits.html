@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Didits List</title>
+    </head>
+    <body onload="pageLoad()">
+        <div data-role="page">
+            <div data-role="header">
+                <ul class="nav nav-tabs">
+                    <li id='historyBack' class="glyphicon glyphicon-chevron-left"></li>
+                </ul>
+            </div>
+            <div data-role="content">
+                <ul class="didit-list" data-role="listview" data-inset="true">
+                </ul>
+            </div>
+            <script>
+                
+                document.addEventListener("deviceready", onDeviceReady, false);
+                
+                function onDeviceReady() {
+                    $('#historyBack').click(function(){
+                        event.preventDefault();
+                        history.back(1);
+                    });
+                    listGenerator.generateOwnDiditList();
+                }
+            
+                </script>
+        </div>
+    </body>
+</html>

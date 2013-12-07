@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Didits Within a given Range</title>
+</head>
+<body onload="pageLoad()">
+<div data-role="page">
+    <div data-role="header">
+        <ul class="nav nav-tabs">
+            <li id='historyBack' class="glyphicon glyphicon-chevron-left"></li>
+        </ul>
+    </div>
+    <div data-role="content">
+        <ul class="didit-list" data-role="listview" data-inset="true">
+        </ul>
+        <script>
+           function pageLoad() {
+                document.addEventListener("deviceready", onDeviceReady, false);
+                function onDeviceReady() {
+
+                    navigator.geolocation.getCurrentPosition(onSuccess, onError);
+
+                    function onSuccess(position) {
+                        listGenerator.generateDiditListWithRange(1000, position.coords.latitude, position.coords.longitude);
+                    }
+
+                    function onError(error) {
+                        alert(error.message);
+                    }
+
+
+                    $(":radio").bind("change", function (event) {
+                        if ($(this).val() === "vlist") {
+                            mapKit.hideMap();
+                        }
+                        if ($(this).val() === "vmap") {
+                            mapUtility.displayMapForNearby();
+                        }
+                    });
+
+                    $("#back").click(function () {
+                        mapKit.hideMap();
+                    });
+
+                }
+           }
+        </script>
+    </div>
+</div>
+</body>
+</html>
