@@ -1,16 +1,16 @@
 
 (function() {
 
-    var cordovaRef = window.PhoneGap || window.Cordova || window.cordova;
+	var cordovaRef = window.PhoneGap || window.Cordova || window.cordova;
 
-    var MapKit = function() {
-        this.options = {
-            height: 460,
-            diameter: 1000,
-            atBottom: true,
-            lat: 49.281468,
-            lon: -123.104446
-        };
+	var MapKit = function() {
+		this.options = {
+			height: 460,
+			diameter: 1000,
+			atBottom: true,
+			lat: 49.281468,
+			lon: -123.104446
+		};
 
         this.mapType = {
             MAP_TYPE_NONE: 0, //No base map tiles.
@@ -32,34 +32,34 @@
             HUE_MAGENTA: 300.0,
             HUE_ROSE: 330.0
         };
-    };
+	};
 
-    MapKit.prototype = {
+	MapKit.prototype = {
 
-        showMap: function(success, error) {
-            cordovaRef.exec(success, error, 'MapKit', 'showMap', [this.options]);
-        },
+		showMap: function(success, error) {
+			cordovaRef.exec(success, error, 'MapKit', 'showMap', [this.options]);
+		},
 
-        addMapPins: function(pins, success, error) {
-            cordovaRef.exec(success, error, 'MapKit', 'addMapPins', [pins]);
-        },
+		addMapPins: function(pins, success, error) {
+			cordovaRef.exec(success, error, 'MapKit', 'addMapPins', [pins]);
+		},
 
-        clearMapPins: function(success, error) {
-            cordovaRef.exec(success, error, 'MapKit', 'clearMapPins', []);
-        },
+		clearMapPins: function(success, error) {
+			cordovaRef.exec(success, error, 'MapKit', 'clearMapPins', []);
+		},
 
-        hideMap: function(success, error) {
-            cordovaRef.exec(success, error, 'MapKit', 'hideMap', []);
-        },
+		hideMap: function(success, error) {
+			cordovaRef.exec(success, error, 'MapKit', 'hideMap', []);
+		},
 
-        changeMapType: function(mapType, success, error) {
-            cordovaRef.exec(success, error, 'MapKit', 'changeMapType', [mapType ? { "mapType": mapType } :{ "mapType": 0 }]);
-        }
+		changeMapType: function(mapType, success, error) {
+			cordovaRef.exec(success, error, 'MapKit', 'changeMapType', [mapType ? { "mapType": mapType } :{ "mapType": 0 }]);
+		}
 
-    };
+	};
 
-    cordovaRef.addConstructor(function() {
-        window.mapKit = new MapKit();
-    });
+	cordovaRef.addConstructor(function() {
+		window.mapKit = new MapKit();
+	});
 
 })();

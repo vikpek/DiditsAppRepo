@@ -57,7 +57,7 @@
         <plugin name="Battery" value="CDVBattery" />
         <plugin name="Globalization" value="CDVGlobalization" />
         <plugin name="InAppBrowser" value="CDVInAppBrowser" />
-        <plugin name="MapKit" value="MapKit" />
+        <plugin name="MapKitView" value="MapKitView" />
     </plugins>
 
     <access origin="*" />
